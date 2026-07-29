@@ -18,8 +18,10 @@
     .page:after{bottom:-230px;left:-160px;box-shadow:0 0 0 46px rgba(255,255,255,.15),0 0 0 92px rgba(169,46,80,.04)}
     .letter{position:relative;width:min(100%,730px);min-height:570px;padding:74px 80px 60px;text-align:center;background:linear-gradient(rgba(214,77,111,.035) 1px,transparent 1px) 0 0/100% 30px,var(--paper);border:1px solid rgba(92,48,59,.12);border-radius:5px 5px 18px 5px;box-shadow:0 30px 80px rgba(119,54,70,.22),0 3px 0 rgba(255,255,255,.9) inset;transform:rotate(-.45deg)}
     .letter:before{position:absolute;inset:12px;pointer-events:none;border:1px solid rgba(214,77,111,.16);content:""}
-    .postmark{position:absolute;top:30px;right:34px;display:grid;width:96px;height:96px;place-content:center;color:rgba(169,46,80,.66);border:2px solid;border-radius:50%;font-size:10px;letter-spacing:.16em;line-height:1.7;transform:rotate(11deg)}
-    .postmark:before,.postmark:after{position:absolute;top:46px;left:86px;width:74px;border-top:1px solid;content:""}.postmark:after{top:54px;width:62px}.postmark strong{font-size:9px}
+    .cherry-stamp{position:absolute;top:27px;right:31px;display:grid;width:108px;height:108px;place-content:center;color:var(--dark);border:2px dashed rgba(169,46,80,.46);border-radius:32% 48% 38% 46%;background:rgba(255,244,245,.76);transform:rotate(8deg);box-shadow:0 3px 0 rgba(214,77,111,.08)}
+    .cherry-stamp .fruit{font-size:42px;line-height:1;filter:drop-shadow(0 4px 4px rgba(169,46,80,.18));animation:cherry-wiggle 3s ease-in-out infinite}
+    .cherry-stamp strong{margin-top:5px;font-size:8px;letter-spacing:.18em;text-transform:uppercase}
+    .cherry-stamp:after{position:absolute;right:-24px;bottom:7px;color:rgba(169,46,80,.42);font-size:16px;content:"♥"}
     .eyebrow{margin:0 0 16px;color:var(--dark);font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase}
     .mini-heart{width:32px;height:32px;margin:0 auto 12px;color:var(--rose);font:25px Georgia,serif;animation:beat 1.7s ease-in-out infinite}
     h1{max-width:600px;margin:0 auto;font:400 clamp(46px,7vw,78px)/.98 Georgia,"Times New Roman",serif;letter-spacing:-.055em;text-wrap:balance}
@@ -27,7 +29,7 @@
     .answers{display:flex;min-height:60px;justify-content:center;gap:14px;margin-top:36px}
     button{border:0;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease,background .18s ease}
     .yes{min-width:184px;padding:17px 24px;color:#fff;background:var(--rose);border-radius:999px;box-shadow:0 10px 24px rgba(169,46,80,.26);font-weight:700}.yes:hover{background:var(--dark);box-shadow:0 13px 28px rgba(169,46,80,.32);transform:translateY(-2px) scale(1.02)}
-    .no{width:108px;height:54px;color:#80505d;background:transparent;border:1px solid rgba(128,80,93,.32);border-radius:999px}.no.running{position:fixed;z-index:20;background:rgba(255,253,249,.96);box-shadow:0 8px 22px rgba(94,42,57,.13);transition:left .175s cubic-bezier(.2,.8,.2,1),top .175s cubic-bezier(.2,.8,.2,1)}
+    .no{width:108px;height:54px;color:#80505d;background:transparent;border:1px solid rgba(128,80,93,.32);border-radius:999px;touch-action:manipulation;user-select:none;-webkit-user-select:none}.no.running{position:fixed;z-index:20;visibility:visible!important;background:rgba(255,253,249,.96);box-shadow:0 8px 22px rgba(94,42,57,.13);transition:left .175s cubic-bezier(.2,.8,.2,1),top .175s cubic-bezier(.2,.8,.2,1)}
     button:focus-visible{outline:3px solid rgba(214,77,111,.35);outline-offset:4px}
     .tease{min-height:19px;margin:13px 0 0;color:#a76577;font-size:12px;font-weight:600;opacity:0;transition:opacity .25s}.tease.show{opacity:1}
     .ambient span{position:absolute;z-index:-1;color:rgba(180,52,87,.15);font:38px Georgia,serif;animation:float 8s ease-in-out infinite}.ambient span:nth-child(1){top:11%;left:9%}.ambient span:nth-child(2){top:20%;right:12%;font-size:22px;animation-delay:-2s}.ambient span:nth-child(3){bottom:19%;left:13%;font-size:26px;animation-delay:-4s}.ambient span:nth-child(4){right:8%;bottom:12%;font-size:44px;animation-delay:-1s}.ambient span:nth-child(5){top:7%;left:45%;font-size:17px;animation-delay:-5s}
@@ -38,10 +40,11 @@
     .music{padding:10px 15px;color:var(--dark);background:#fae7eb;border-radius:999px;font-size:12px;font-weight:700}.music:hover{background:#f6d2da;transform:translateY(-1px)}
     .shower{position:fixed;z-index:10;inset:0;overflow:hidden;pointer-events:none}.shower span{position:absolute;bottom:-60px;color:var(--rose);font-family:Georgia,serif;opacity:0;text-shadow:0 4px 10px rgba(169,46,80,.2);animation:rise ease-out forwards}
     @keyframes beat{0%,100%{transform:scale(1)}15%{transform:scale(1.16)}28%{transform:scale(1)}42%{transform:scale(1.11)}}
+    @keyframes cherry-wiggle{0%,100%{transform:rotate(-4deg) scale(1)}50%{transform:rotate(5deg) scale(1.08)}}
     @keyframes float{0%,100%{transform:translateY(0) rotate(-6deg)}50%{transform:translateY(-20px) rotate(7deg)}}
     @keyframes message{from{opacity:0;transform:translateY(18px) scale(.97)}to{opacity:1;transform:none}}
     @keyframes rise{0%{opacity:0;transform:translate3d(0,0,0) rotate(-14deg) scale(.7)}12%{opacity:.9}100%{opacity:0;transform:translate3d(var(--drift),-112vh,0) rotate(18deg) scale(1.25)}}
-    @media(max-width:640px){.page{padding:18px 14px 34px}.letter{min-height:min(620px,calc(100svh - 58px));padding:90px 25px 42px}.postmark{top:24px;right:24px;width:72px;height:72px;font-size:8px}.postmark:before,.postmark:after{top:34px;left:65px;width:48px}.postmark:after{top:41px;width:39px}h1{font-size:clamp(43px,14vw,61px)}.intro{font-size:16px}.answers{gap:9px}.yes{min-width:170px}.no{width:92px}.love-note{font-size:15px;line-height:1.65}.reveal{min-height:410px}.distance{display:none}}
+    @media(max-width:640px){.page{padding:18px 14px 34px}.letter{min-height:min(620px,calc(100svh - 58px));padding:96px 22px 42px}.cherry-stamp{top:20px;right:20px;width:82px;height:82px}.cherry-stamp .fruit{font-size:31px}.cherry-stamp strong{font-size:6px}.cherry-stamp:after{right:-13px;font-size:12px}h1{font-size:clamp(42px,13.5vw,60px)}.intro{font-size:16px}.answers{gap:8px}.yes{min-width:164px;padding-right:18px;padding-left:18px}.no{width:88px}.love-note{font-size:15px;line-height:1.65}.reveal{min-height:410px}.distance{display:none}}
     @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
   </style>
 </head>
@@ -50,12 +53,12 @@
     <div class="ambient" aria-hidden="true"><span>♥</span><span>♥</span><span>♥</span><span>♥</span><span>♥</span></div>
     <div class="shower" id="shower" aria-hidden="true"></div>
     <section class="letter" aria-live="polite">
-      <div class="postmark" aria-hidden="true"><span>LOVE MAIL</span><strong>∞ MILES</strong></div>
+      <div class="cherry-stamp" aria-hidden="true"><span class="fruit">🍒</span><strong>Cherry Express</strong></div>
       <div class="question" id="question">
         <p class="eyebrow">A tiny question from Hans</p>
         <div class="mini-heart" aria-hidden="true">♥</div>
         <h1>Cherry,<br>do you love me?</h1>
-        <p class="intro">There may be miles between us, but you’re still the closest person to my heart.</p>
+        <p class="intro">Even on opposite ends of the Earth, you're still the closest person to my heart.</p>
         <div class="answers">
           <button class="yes" id="yes" type="button">Yes, obviously ♥</button>
           <button class="no" id="no" type="button" aria-label="No — this button will playfully run away">No</button>
@@ -65,9 +68,9 @@
       <div class="reveal" id="reveal">
         <p class="eyebrow">I knew it ♥</p>
         <div class="big-heart" aria-hidden="true">♥</div>
-        <h1>You just made Hans the happiest.</h1>
+        <h1>Awwwww, I knew you loved me, 嘻嘻</h1>
         <p class="love-note">Cherry, no matter how many screens, time zones, or miles sit between us, I choose you—today, tomorrow, and every day after. Thank you for being my favorite notification, my safest place, and the best part of every day.</p>
-        <p class="signature">Always yours,<strong>Hans</strong></p>
+        <p class="signature">Always yours,<strong>吴胤臻</strong></p>
         <button class="music" id="music" type="button">♫ Pause our little song</button>
       </div>
     </section>
@@ -75,18 +78,21 @@
   </main>
   <script>
     const no=document.querySelector("#no"),yes=document.querySelector("#yes"),tease=document.querySelector("#tease"),question=document.querySelector("#question"),reveal=document.querySelector("#reveal"),shower=document.querySelector("#shower"),music=document.querySelector("#music");
-    let escapes=0,noPos=null,audio=null,master=null,musicOn=false,loopTimer=null;
+    const customSong=new Audio("song.mp3");customSong.loop=true;customSong.preload="metadata";
+    let escapes=0,noPos=null,audio=null,master=null,musicOn=false,loopTimer=null,hasCustomSong=false;
+    fetch("song.mp3",{method:"HEAD"}).then(r=>hasCustomSong=r.ok).catch(()=>{});
     function moveNo(x=innerWidth/2,y=innerHeight/2){
-      const pad=22,w=108,h=54,maxX=Math.max(pad,innerWidth-w-pad),maxY=Math.max(pad,innerHeight-h-pad);
+      const rect=no.getBoundingClientRect(),pad=16,w=rect.width||108,h=rect.height||54,maxX=Math.max(pad,innerWidth-w-pad),maxY=Math.max(pad,innerHeight-h-pad);
       const spots=Array.from({length:14},(_,i)=>{const a=i/14*Math.PI*2+Math.random()*.35,r=145+Math.random()*180;return{x:Math.min(maxX,Math.max(pad,x+Math.cos(a)*r)),y:Math.min(maxY,Math.max(pad,y+Math.sin(a)*r))}});
       noPos=spots.reduce((best,p)=>Math.hypot(p.x-x,p.y-y)>Math.hypot(best.x-x,best.y-y)?p:best);
-      no.classList.add("running");no.style.left=noPos.x+"px";no.style.top=noPos.y+"px";escapes++;tease.classList.add("show");
+      no.classList.add("running");no.style.left=noPos.x+"px";no.style.top=noPos.y+"px";no.style.display="block";escapes++;tease.classList.add("show");
       tease.textContent=escapes<2?"Hmm… that button seems shy.":escapes<5?"Nice try, Cherry 😌":"I think the universe has spoken.";
     }
     no.addEventListener("pointerenter",e=>moveNo(e.clientX,e.clientY));
     no.addEventListener("pointerdown",e=>{e.preventDefault();moveNo(e.clientX,e.clientY)});
     no.addEventListener("click",e=>{e.preventDefault();moveNo(e.clientX,e.clientY)});
     addEventListener("pointermove",e=>{if(noPos&&Math.hypot(e.clientX-(noPos.x+54),e.clientY-(noPos.y+27))<105)moveNo(e.clientX,e.clientY)});
+    addEventListener("resize",()=>{if(noPos)moveNo(innerWidth/2,innerHeight/2)});
     const notes=[261.63,329.63,392,523.25,392,329.63,293.66,349.23,440,587.33,440,349.23,329.63,392,493.88,659.25,523.25,392];
     function scheduleSong(){
       if(!audio||!musicOn)return;const start=audio.currentTime+.08;
@@ -94,10 +100,11 @@
       loopTimer=setTimeout(scheduleSong,notes.length*340+450);
     }
     function startMusic(){
+      if(hasCustomSong){customSong.play();musicOn=true;music.textContent="♫ Pause our song";return}
       if(!audio){const AC=window.AudioContext||window.webkitAudioContext;audio=new AC;master=audio.createGain();master.gain.value=.15;master.connect(audio.destination)}
       audio.resume();musicOn=true;music.textContent="♫ Pause our little song";clearTimeout(loopTimer);scheduleSong();
     }
-    function pauseMusic(){musicOn=false;clearTimeout(loopTimer);audio?.suspend();music.textContent="♪ Play our little song"}
+    function pauseMusic(){musicOn=false;clearTimeout(loopTimer);customSong.pause();audio?.suspend();music.textContent="♪ Play our song"}
     function hearts(){
       for(let i=0;i<28;i++){const h=document.createElement("span");h.textContent=i%3?"♥":"♡";h.style.left=(i*37+7)%100+"%";h.style.animationDelay=i%8*.13+"s";h.style.animationDuration=3.2+i%5*.45+"s";h.style.fontSize=18+i%4*8+"px";h.style.setProperty("--drift",(i%7-3)*18+"px");shower.append(h)}
     }
